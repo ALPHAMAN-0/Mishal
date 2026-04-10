@@ -108,29 +108,33 @@ function initGSAPAnimations() {
         y: 0, opacity: 1, duration: 0.7, stagger: 0.08
     }, 0);
 
-    // 2. "MISHAL" name — clip reveal from bottom with overshoot
-    gsap.set('.hero-first-name', { y: 120, opacity: 0, visibility: 'visible' });
-    heroTL.to('.hero-first-name', {
-        y: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)'
-    }, 0.15);
+    // 2. "Hey," slides from left, "there" slides from right
+    gsap.set('.hero-script-hey', { opacity: 0, x: -60, visibility: 'visible' });
+    gsap.set('.hero-script-there', { opacity: 0, x: 60, visibility: 'visible' });
+    heroTL.to('.hero-script-hey', {
+        opacity: 0.08, x: 0, duration: 1.2, ease: 'power2.out'
+    }, 0.1);
+    heroTL.to('.hero-script-there', {
+        opacity: 0.08, x: 0, duration: 1.2, ease: 'power2.out'
+    }, 0.2);
 
     // 3. Profile photo — scale up with fade
-    gsap.set('.profile-pic-container', { scale: 0.8, opacity: 0, visibility: 'visible' });
+    gsap.set('.profile-pic-container', { scale: 0.85, opacity: 0, visibility: 'visible' });
     heroTL.to('.profile-pic-container', {
-        scale: 1, opacity: 1, duration: 1.0, ease: 'power2.out'
-    }, 0.5);
+        scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out'
+    }, 0.3);
 
-    // 4. Hero left (role, description, CTA) — stagger slide from left
-    gsap.set('.hero-left .reveal-child', { x: -30, y: 20, opacity: 0, visibility: 'visible' });
-    heroTL.to('.hero-left .reveal-child', {
-        x: 0, y: 0, opacity: 1, duration: 0.8, stagger: 0.12
-    }, 0.7);
-
-    // 5. Social pills — stagger slide from right
-    gsap.set('.hero-right .reveal-child', { x: 40, opacity: 0, visibility: 'visible' });
-    heroTL.to('.hero-right .reveal-child', {
-        x: 0, opacity: 1, duration: 0.7, stagger: 0.1
+    // 4. "I AM MISHAL" — slide up from bottom left
+    gsap.set('.hero-bottom-left .reveal-child', { y: 60, opacity: 0, visibility: 'visible' });
+    heroTL.to('.hero-bottom-left .reveal-child', {
+        y: 0, opacity: 1, duration: 0.9, stagger: 0.15, ease: 'back.out(1.4)'
     }, 0.8);
+
+    // 5. "SOFTWARE DEVELOPER" + desc — slide up from bottom right
+    gsap.set('.hero-bottom-right .reveal-child', { y: 50, opacity: 0, visibility: 'visible' });
+    heroTL.to('.hero-bottom-right .reveal-child', {
+        y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+    }, 0.9);
 
     // ========================================
     //  WATERMARK PARALLAX (scrub — continuous)
@@ -337,12 +341,13 @@ function initGSAPAnimations() {
     //  BUTTON POP: bounce after hero CTA appears
     // ========================================
 
-    heroTL.to('.hero-left .btn-dark', {
-        scale: 1.08, duration: 0.25, ease: 'power2.out'
+    // Button pop on hero big name
+    heroTL.to('.hero-big-name', {
+        scale: 1.03, duration: 0.2, ease: 'power2.out'
     }, 1.6);
-    heroTL.to('.hero-left .btn-dark', {
+    heroTL.to('.hero-big-name', {
         scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.4)'
-    }, 1.85);
+    }, 1.8);
 
     // ========================================
     //  MOUSE-TRACKING SHINE on buttons
