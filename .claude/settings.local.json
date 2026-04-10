@@ -3,7 +3,13 @@
     "allow": [
       "mcp__Claude_Preview__preview_start",
       "WebFetch(domain:dribbble.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(sips -s format jpeg \"/Users/siam/Desktop/GitHub/Untitled/Mishal/image/IMG_9513.HEIC\" --out \"/Users/siam/Desktop/GitHub/Untitled/Mishal/assets/images/profile.jpg\" --resampleHeight 800)",
+      "Bash(pip3 list:*)",
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow available'\\)\")",
+      "Bash(pip3 install:*)",
+      "Bash(sips -s format jpeg \"/Users/siam/Desktop/GitHub/Untitled/Mishal/image/IMG_9513.HEIC\" --out \"/Users/siam/Desktop/GitHub/Untitled/Mishal/assets/images/profile-hires.jpg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/siam/Desktop/GitHub/Untitled/Mishal/assets/images/profile-hires.jpg\")"
     ]
   }
 }

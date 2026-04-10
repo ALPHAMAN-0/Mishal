@@ -86,6 +86,9 @@ function initGSAPAnimations() {
     // Register plugins
     gsap.registerPlugin(ScrollTrigger);
 
+    // Ensure ticker runs in all contexts (background tabs, headless)
+    gsap.ticker.lagSmoothing(0);
+
     // Mark body for FOUC prevention, mark html as GSAP ready
     document.body.classList.add('gsap-init');
     document.documentElement.classList.add('gsap-ready');
@@ -329,6 +332,68 @@ function initGSAPAnimations() {
             }
         });
     }
+
+    // ========================================
+    //  BUTTON POP: bounce after hero CTA appears
+    // ========================================
+
+    heroTL.to('.hero-left .btn-dark', {
+        scale: 1.08, duration: 0.25, ease: 'power2.out'
+    }, 1.6);
+    heroTL.to('.hero-left .btn-dark', {
+        scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.4)'
+    }, 1.85);
+
+    // ========================================
+    //  MOUSE-TRACKING SHINE on buttons
+    // ========================================
+
+    document.querySelectorAll('.btn-dark').forEach(function (btn) {
+        btn.addEventListener('mousemove', function (e) {
+            var rect = btn.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            btn.style.setProperty('--x', x + '%');
+            btn.style.setProperty('--y', y + '%');
+        });
+    });
+
+    // ========================================
+    //  MAGNETIC HOVER on FAB button
+    // ========================================
+
+    var fab = document.getElementById('admin-fab');
+    if (fab) {
+        fab.addEventListener('mousemove', function (e) {
+            var rect = fab.getBoundingClientRect();
+            var cx = rect.left + rect.width / 2;
+            var cy = rect.top + rect.height / 2;
+            var dx = (e.clientX - cx) * 0.15;
+            var dy = (e.clientY - cy) * 0.15;
+            gsap.to(fab, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
+        });
+        fab.addEventListener('mouseleave', function () {
+            gsap.to(fab, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+        });
+    }
+
+    // ========================================
+    //  MAGNETIC HOVER on social pills
+    // ========================================
+
+    document.querySelectorAll('.social-pill').forEach(function (pill) {
+        pill.addEventListener('mousemove', function (e) {
+            var rect = pill.getBoundingClientRect();
+            var cx = rect.left + rect.width / 2;
+            var cy = rect.top + rect.height / 2;
+            var dx = (e.clientX - cx) * 0.1;
+            var dy = (e.clientY - cy) * 0.1;
+            gsap.to(pill, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
+        });
+        pill.addEventListener('mouseleave', function () {
+            gsap.to(pill, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+        });
+    });
 }
 
 // ===== THEME TOGGLE =====
