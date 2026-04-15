@@ -226,25 +226,9 @@ body {
                 background 0.3s ease;
 }
 
-.btn-dark::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.2) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
 .btn-dark:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow:
-        0 0 20px rgba(108, 92, 231, 0.3),
-        0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn-dark:hover::after {
-    opacity: 1;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-dark:active {
@@ -334,7 +318,7 @@ body {
     object-fit: cover;
     object-position: top center;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
 }
 
 .profile-pic-container:hover #profile-pic {
@@ -562,17 +546,8 @@ section {
 }
 
 .project-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    border-color: rgba(108, 92, 231, 0.3);
-    box-shadow:
-        0 0 20px rgba(108, 92, 231, 0.1),
-        0 16px 40px rgba(0, 0, 0, 0.12);
-}
-
-[data-theme="dark"] .project-card:hover {
-    box-shadow:
-        0 0 25px rgba(108, 92, 231, 0.2),
-        0 16px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .project-card:active {
@@ -747,48 +722,9 @@ section {
                 border-color 0.4s ease;
 }
 
-/* Neon glow border effect */
-.skill-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius);
-    padding: 1.5px;
-    background: linear-gradient(135deg, #6c5ce7, #e94560, #00b894, #6c5ce7);
-    background-size: 300% 300%;
-    animation: neonShift 4s ease infinite;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.skill-card:hover::before {
-    opacity: 1;
-}
-
-@keyframes neonShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 .skill-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    border-color: transparent;
-    box-shadow:
-        0 0 15px rgba(108, 92, 231, 0.15),
-        0 0 30px rgba(108, 92, 231, 0.08),
-        0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] .skill-card:hover {
-    box-shadow:
-        0 0 20px rgba(108, 92, 231, 0.25),
-        0 0 40px rgba(108, 92, 231, 0.1),
-        0 12px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .skill-card:active {
@@ -946,8 +882,8 @@ footer {
 }
 
 #admin-fab:hover {
-    transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 #admin-fab:active {

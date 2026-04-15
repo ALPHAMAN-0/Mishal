@@ -399,6 +399,7 @@ function initGSAPAnimations() {
             gsap.to(pill, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
         });
     });
+
 }
 
 // ===== THEME TOGGLE =====
